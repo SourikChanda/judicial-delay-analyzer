@@ -1,0 +1,6 @@
+SELECT
+  state,
+  civil_2021 - civil_2020 AS civil_growth,
+  criminal_2021 - criminal_2020 AS criminal_growth
+FROM `court-delay-analyzer.judicial_analysis.cleaned_cases`
+ORDER BY criminal_growth DESC;
