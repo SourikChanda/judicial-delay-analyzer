@@ -1,0 +1,9 @@
+CREATE OR REPLACE VIEW `court-delay-analyzer.judicial_analysis.cleaned_cases` AS
+SELECT
+  CAST(number AS INT64) AS sl_no,
+  `States or UT` AS state,
+  `Cases Pending as in Dec 2020 - Civil Cases` AS civil_2020,
+  `Cases Pending as in Dec 2021 - Civil Cases` AS civil_2021,
+  `Cases Pending as in Dec 2020 - Criminal Cases` AS criminal_2020,
+  `Cases Pending as in Dec 2021 - Criminal Cases` AS criminal_2021
+FROM `court-delay-analyzer.judicial_analysis.case_pending`;
