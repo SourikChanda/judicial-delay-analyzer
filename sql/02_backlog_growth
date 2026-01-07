@@ -1,0 +1,20 @@
+#increase in pending cases
+SELECT
+State,
+  (civil_2021 + criminal_2021) -
+  (civil_2020 + criminal_2020) AS increase_in_pending_cases
+FROM `court-delay-analyzer.judicial_analysis.cleaned_cases`
+ORDER BY increase_in_pending_cases DESC;
+
+#backlog growth in percentage
+SELECT
+  state,
+  ROUND(
+    SAFE_DIVIDE(
+      (civil_2021 + criminal_2021) -
+      (civil_2020 + criminal_2020),
+      (civil_2020 + criminal_2020)
+    ) * 100, 2
+  ) AS backlog_growth_percentage
+FROM `court-delay-analyzer.judicial_analysis.cleaned_cases`
+ORDER BY backlog_growth_percentage DESC;
