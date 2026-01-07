@@ -1,0 +1,9 @@
+SELECT
+  state,
+  CASE
+    WHEN (criminal_2021 - criminal_2020) >
+         (civil_2021 - civil_2020)
+    THEN 'Criminal Dominated Backlog'
+    ELSE 'Civil Dominated Backlog'
+  END AS backlog_type
+FROM `court-delay-analyzer.judicial_analysis.cleaned_cases`;
