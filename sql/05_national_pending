@@ -1,0 +1,6 @@
+SELECT
+  SUM(civil_2020 + criminal_2020) AS total_cases_2020,
+  SUM(civil_2021 + criminal_2021) AS total_cases_2021,
+  SUM(civil_2021 + criminal_2021) -
+  SUM(civil_2020 + criminal_2020) AS net_backlog_added
+FROM `court-delay-analyzer.judicial_analysis.cleaned_cases`;
